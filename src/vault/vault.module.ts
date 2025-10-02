@@ -9,5 +9,6 @@ import { KeyValService } from './services/key-val.service';
   imports: [DatabaseModule],
   controllers: [KeyValController],
   providers: [KeyValService, repositoryProvider(KeyVal)],
+  exports: [KeyValService],
 })
 export class VaultModule {}
