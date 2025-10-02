@@ -2,8 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TaskService {
-    constructor() {
-        super();
-
-    }
+  constructor() {
+    super();
+  }
 }
