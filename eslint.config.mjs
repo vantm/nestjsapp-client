@@ -5,6 +5,8 @@ import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import importAlias from '@dword-design/eslint-plugin-import-alias';
 
 export default defineConfig(
   {
@@ -13,6 +15,7 @@ export default defineConfig(
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   eslintPluginPrettierRecommended,
+  importAlias.configs.recommended,
   {
     files: ['src/**/*.ts', 'test/**/*.ts'],
     extends: [
@@ -43,6 +46,11 @@ export default defineConfig(
               group: 'external',
               position: 'before',
             },
+            {
+              pattern: '@app/**',
+              group: 'internal',
+              position: 'after',
+            },
           ],
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
@@ -69,6 +77,19 @@ export default defineConfig(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@dword-design/import-alias/prefer-alias': [
+        'error',
+        {
+          alias: {
+            '@app': './src',
+          },
+        },
+      ],
+    },
+  },
+  {
+    settings: {
+      'import-x/resolver-next': [createTypeScriptImportResolver({})],
     },
   },
 );

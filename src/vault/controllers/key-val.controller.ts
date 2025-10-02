@@ -9,10 +9,10 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
-import { CreateKeyValDto } from '../dto/create-key-val.dto';
-import { UpdateKeyValDto } from '../dto/update-key-val.dto';
-import { KeyVal } from '../models/key-val.model';
-import { KeyValService } from '../services/key-val.service';
+import { CreateKeyValDto } from '@app/vault/dto/create-key-val.dto';
+import { UpdateKeyValDto } from '@app/vault/dto/update-key-val.dto';
+import { KeyVal } from '@app/vault/models/key-val.model';
+import { KeyValService } from '@app/vault/services/key-val.service';
 
 @Controller('key-val')
 export class KeyValController {

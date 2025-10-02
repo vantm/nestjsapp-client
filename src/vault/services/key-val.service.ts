@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateKeyValDto } from '../dto/create-key-val.dto';
-import { UpdateKeyValDto } from '../dto/update-key-val.dto';
-import { KeyVal } from '../models/key-val.model';
+import { CreateKeyValDto } from '@app/vault/dto/create-key-val.dto';
+import { UpdateKeyValDto } from '@app/vault/dto/update-key-val.dto';
+import { KeyVal } from '@app/vault/models/key-val.model';
 
 @Injectable()
 export class KeyValService {
