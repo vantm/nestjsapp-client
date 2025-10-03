@@ -1,12 +1,11 @@
-// @ts-check
 import eslint from '@eslint/js';
-import { defineConfig } from 'eslint/config';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
+import importAlias from '@dword-design/eslint-plugin-import-alias';
 import tseslint from 'typescript-eslint';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import importAlias from '@dword-design/eslint-plugin-import-alias';
+import { defineConfig } from 'eslint/config';
 
 export default defineConfig(
   {
@@ -48,7 +47,7 @@ export default defineConfig(
             },
             {
               pattern: '@app/**',
-              group: 'internal',
+              group: 'external',
               position: 'after',
             },
           ],
@@ -57,6 +56,7 @@ export default defineConfig(
       ],
       'import/no-unresolved': 'error',
       'import/no-duplicates': 'error',
+      'import/no-absolute-path': 'error',
     },
   },
   {
